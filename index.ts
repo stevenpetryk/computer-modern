@@ -14,6 +14,8 @@ const families: {
   }[]
 } = {}
 
+let familyExamples: string[] = []
+
 const srcDir = path.join(__dirname, "src")
 const outDir = path.join(__dirname, "build")
 
@@ -33,8 +35,10 @@ async function main() {
 
   await woff2Compress()
 
-  constructCSS()
-  buildPackageJson()
+  await constructCSS()
+  await buildPackageJson()
+
+  appendExamplesToREADME()
 }
 
 async function woff2Compress() {
@@ -74,6 +78,8 @@ async function constructCSS() {
       font.style === "italic",
       font.outPath,
     ])
+
+    familyExamples.push(familyName)
 
     const fontFaces = sortedFonts.map((font) => {
       const url = "./" + path.relative(path.dirname(filepath), font.outPath)
@@ -141,6 +147,22 @@ async function processFont(fontPath: string) {
   })
 
   await fs.copy(fontPath, `${outPath}.ttf`)
+}
+
+async function appendExamplesToREADME() {
+  const cssSnippets = sortBy(familyExamples).map((f) => `font-family: "${f}";`)
+
+  await fs.appendFile(
+    path.join(outDir, "README.md"),
+    "\n" +
+      endent`
+      \`\`\`css
+      .example-selector {
+        ${cssSnippets.join("\n")}
+      }
+      \`\`\`
+    `
+  )
 }
 
 main()

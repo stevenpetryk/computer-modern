@@ -11,10 +11,10 @@ The Computer Modern fonts are licensed under the SIL Open Font License. See the 
 This package breaks the fonts down based on family. The most common one is CMU Serif.
 
 ```css
-// Import all Computer Modern fonts
+/* Import all Computer Modern fonts */
 @import "computer-modern/index.css";
 
-// Import individual families
+/* Import individual families */
 @import "computer-modern/cmu-bright.css";
 @import "computer-modern/cmu-classical-serif.css";
 @import "computer-modern/cmu-concrete.css";
@@ -22,7 +22,9 @@ This package breaks the fonts down based on family. The most common one is CMU S
 @import "computer-modern/cmu-sans-serif.css";
 @import "computer-modern/cmu-serif-extra.css";
 @import "computer-modern/cmu-serif-upright-italic.css";
-@import "computer-modern/cmu-serif.css"; // ← most common!
+@import "computer-modern/cmu-serif.css"; /* ← most common! */
 @import "computer-modern/cmu-typewriter-text-variable-width.css";
 @import "computer-modern/cmu-typewriter-text.css";
 ```
+
+Depending on what fonts you import, you can use them like this:
