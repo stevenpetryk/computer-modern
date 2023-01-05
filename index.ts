@@ -21,6 +21,7 @@ async function main() {
   await fs.rm(outDir, { force: true, recursive: true })
   await fs.mkdir(outDir)
   await fs.copyFile(path.join(srcDir, "OFL.txt"), path.join(outDir, "OFL.txt"))
+  await fs.copyFile("README.md", path.join(outDir, "README.md"))
 
   const fontStream = glob("src/**/*.ttf", { absolute: true })
 

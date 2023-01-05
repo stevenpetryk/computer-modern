@@ -1,12 +1,13 @@
 {
   "name": "computer-modern",
+  "private": true,
   "version": "0.1.0",
   "description": "An NPM package containing the OFL-licensed Computer Modern fonts, and CSS @font-face declarations for them.",
-  "main": "index.js",
   "scripts": {
     "build": "ts-node index",
     "publish": "pnpm run build && cd build && npm publish"
   },
+  "repository": "https://github.com/stevenpetryk/computer-modern",
   "keywords": [
     "font",
     "font family",
