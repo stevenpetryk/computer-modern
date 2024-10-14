@@ -28,3 +28,18 @@ This package breaks the fonts down based on family. The most common one is CMU S
 ```
 
 Depending on what fonts you import, you can use them like this:
+
+```css
+.example-selector {
+  font-family: "CMU Bright";
+  font-family: "CMU Classical Serif";
+  font-family: "CMU Concrete";
+  font-family: "CMU Sans Serif";
+  font-family: "CMU Sans Serif Demi Condensed";
+  font-family: "CMU Serif";
+  font-family: "CMU Serif Extra";
+  font-family: "CMU Serif Upright Italic";
+  font-family: "CMU Typewriter Text";
+  font-family: "CMU Typewriter Text Variable Width";
+}
+```
