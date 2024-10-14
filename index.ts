@@ -37,8 +37,6 @@ async function main() {
 
   await constructCSS()
   await buildPackageJson()
-
-  appendExamplesToREADME()
 }
 
 async function woff2Compress() {
@@ -147,22 +145,6 @@ async function processFont(fontPath: string) {
   })
 
   await fs.copy(fontPath, `${outPath}.ttf`)
-}
-
-async function appendExamplesToREADME() {
-  const cssSnippets = sortBy(familyExamples).map((f) => `font-family: "${f}";`)
-
-  await fs.appendFile(
-    path.join(outDir, "README.md"),
-    "\n" +
-      endent`
-      \`\`\`css
-      .example-selector {
-        ${cssSnippets.join("\n")}
-      }
-      \`\`\`
-    `
-  )
 }
 
 main()
